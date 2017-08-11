@@ -1,0 +1,31 @@
+<p>Welcome to {{FirstName}} + {{LastName}} 's Page {{title}}</p>
+
+<div class = container>
+	<div class = row>
+		<div class = col-md-12>
+		{{this.media}}
+		{{this.bio}}
+		</div>
+	</div>
+</div>
+
+<div class = container>
+	<div class = row>
+		{{#each product}}
+			<div class = col-md-4>
+				{{this.photo}}
+				{{this.description}}
+				{{this.stars}}
+				{{this.price}}
+			 			<form action="/{{this.artist}}?_method=Put" method="POST">
+			        	<button type="submit">Buy!</button>
+			      		</form>
+			</div>
+		{{/each}}
+	</div>
+</div>
+
+<div class = container>
+<button type="submit" href = "/home">Main</button>
+</div>
+
