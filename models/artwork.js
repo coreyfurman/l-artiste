@@ -18,7 +18,9 @@ module.exports = function(sequelize, DataTypes) {
 			len: [1]
 		},
 		rating: {
-			type: DataTypes.STRING,
+			type: DataTypes.INTEGER,
+			min: 1,
+			max: 5,
 			allowNull: false
 		},
 		price: {
