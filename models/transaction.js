@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 	var Transactions = sequelize.define("Transactions", {
-		item: {
+		description: {
 			type: DataTypes.STRING,
 			allowNull: false,
 			validate: {
@@ -11,26 +11,24 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.DECIMAL(10,2),
 			allowNull: false,
 			isNumeric: true
-		},
-		buyer: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			validate: {
-				len: [1]
-			}
-		},
-		seller: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			validate: {
-				len: [1]
-			}
 		}
 	});
 
 	Transactions.associate = function(models) {
 		//associates Transaction with Artist
 		Transactions.belongsTo(models.User, {
+			foreignKey: {
+				allowNull: false
+			}
+		});
+
+		Transactions.belongsTo(models.Artist, {
+			foreignKey: {
+				allowNull: false
+			}
+		});
+
+		Transactions.belongsTo(models.Artwork, {
 			foreignKey: {
 				allowNull: false
 			}
