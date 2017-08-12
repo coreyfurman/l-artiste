@@ -14,7 +14,6 @@ let login = require('./routes/login');
 let logout = require('./routes/logout');
 let signup = require('./routes/signup');
 
-
 let app = express();
 
 // view engine setup
@@ -52,5 +51,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+db.sequelize.sync({ force: true})// added this
 
 module.exports = app;
