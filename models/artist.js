@@ -17,7 +17,26 @@ module.exports = function(sequelize, DataTypes) {
 	      type: DataTypes.STRING,
 	      allowNull: false,
 	      len: [6,12]
+	    },
+	    bio: {
+	      type: DataTypes.TEXT,
+	      allowNull: false,
+	      validate: {
+	        len: [1]
+	      }
+	    }, 
+	    createdAt: {
+	    	type: DataTypes.DATE,
+			allowNull: false,
+			defaultValue: DataTypes.NOW
+	    }, 
+	    updatedAt: {
+	    	type: DataTypes.DATE,
+			allowNull: false,
+			defaultValue: DataTypes.NOW
 	    }
+    },{
+    	timestamps:false
     });
 
     Artist.associate = function(models) {
