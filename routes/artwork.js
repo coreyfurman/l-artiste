@@ -33,7 +33,7 @@ router.post('/new-art', function(req, res, next){
       title: req.body.title,
       category: req.body.category,
       description: req.body.description,
-      media: req.body.media
+      media: req.body.media,
       rating: 1,
       price: req.body.price,
     }
@@ -44,7 +44,7 @@ router.post('/new-art', function(req, res, next){
     
     res.redirect(`/artwork/${artwork.id}`);
   })
-  }
+
 })
 
 module.exports = router;

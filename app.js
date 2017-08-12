@@ -1,3 +1,4 @@
+// Dependencies
 let express = require('express');
 let path = require('path');
 let favicon = require('serve-favicon');
@@ -5,9 +6,14 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
-
+// Routes
 let index = require('./routes/index');
-let users = require('./routes/users');
+let artist = require('./routes/artist');
+let artwork = require('./routes/artwork');
+let login = require('./routes/login');
+let logout = require('./routes/logout');
+let signup = require('./routes/signup');
+
 
 let app = express();
 
@@ -25,7 +31,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/artist', artist);
+app.use('/artwork', artwork);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
