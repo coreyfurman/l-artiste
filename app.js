@@ -13,6 +13,11 @@ let artwork = require('./routes/artwork');
 let login = require('./routes/login');
 let logout = require('./routes/logout');
 let signup = require('./routes/signup');
+let search = require('./routes/search');
+
+// Models
+let db = require('./models');
+
 
 let app = express();
 
@@ -30,8 +35,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/artist', artist);
-app.use('/artwork', artwork);
+app.use('/artists', artist);
+app.use('/artworks', artwork);
+app.use('/search', search);
+app.use('/login', login);
+app.use('/logout', logout);
+app.use('/signup', signup);
 
 
 // catch 404 and forward to error handler
@@ -52,6 +61,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-db.sequelize.sync({ force: true})// added this
+db.sequelize.sync(
+//  { force: true}
+)// added this
 
 module.exports = app;
