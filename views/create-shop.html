@@ -42,7 +42,7 @@
 	</head>
 
 
-
+	
 <body id="index" class="index hide-left-column hide-right-column lang_en">
 		<div id="page">
 			<div class="header-container">
@@ -51,6 +51,7 @@
 					<div class="container">
 						<div class="row">
 							<nav>
+
 								<div class="header_user_info">
 										<a class="login" href="NEED A LINK HERE" rel="nofollow" title="Log in to your account">
 										Login
@@ -183,28 +184,33 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-6">
 			<form action="login.html" method="post" id="create-account_form" class="box">
-				<h3 class="page-subheading">Create an account</h3>
+				<h3 class="page-subheading">Setup Your Account</h3>
 				<div class="form_content clearfix">
-					<p>Please enter your name, email address, and a password to create an account.</p>
+					<p>From here you can add or update your shop name or bio</p>
 					<div class="alert alert-danger" id="create_account_error" style="display:none"></div>
 					<div class="form-group">
-						<label for="email_create">Name</label>
-						<input type="name" class="is_required validate account_input form-control" id="name_create" name="email_create" value="" />
+						<label for="email_create">Artist's Name:</label>
+						<input type="text" id="name" class="is_required validate account_input form-control" id="name_create" name="email_create" value="" />
 					</div>
 					<div class="form-group">
-						<label for="email_create">Email address</label>
-						<input type="email" class="is_required validate account_input form-control" data-validate="isEmail" id="email_create" name="email_create" value="" />
+						<label for="email_create">Short Bio (150 characters):</label>
+						<textarea class="form-control" rows="5" id="comment"></textarea>
 					</div>
 					<div class="form-group">
-						<label for="email_create">Password</label>
-						<input type="email" class="is_required validate account_input form-control" data-validate="isEmail" id="email_create" name="email_create" value="" />
+				      <label for="sel1">Art Category (select one):</label>
+				      <select class="form-control" id="sel1">
+				        <option>Paintings</option>
+				        <option>Ceramics</option>
+				        <option>Photography</option>
+				      </select>
 					</div>
 
 					<div class="submit">
-						<input type="hidden" class="hidden" name="back" value="my-account" />						<button class="btn btn-default button button-medium exclusive" type="submit" id="SubmitCreate" name="SubmitCreate">
+						<input type="hidden" class="hidden" name="back" value="my-account" />						
+						<button class="btn btn-default button button-medium updateblue" type="submit" id="artistsinfo" name="SubmitCreate">
 							<span>
-								<i class="icon-user left"></i>
-								Create an account
+								<i class="icon-check left"></i>
+								Create / Update
 							</span>
 						</button>
 						<input type="hidden" class="hidden" name="SubmitCreate" value="Create an account" />
@@ -214,22 +220,38 @@
 		</div>
 		<div class="col-xs-12 col-sm-6">
 			<form action="login.html" method="post" id="login_form" class="box">
-				<h3 class="page-subheading">Already registered?</h3>
+				<h3 class="page-subheading">Add an Art Piece</h3>
+							<p>Go ahead! Add your art with a name and description to your liking.</p>
+					<div class="alert alert-danger" id="create_account_error" style="display:none"></div>
 				<div class="form_content clearfix">
 					<div class="form-group">
-						<label for="email">Email address</label>
-						<input class="is_required validate account_input form-control" data-validate="isEmail" type="email" id="email" name="email" value="" />
+						<label for="email_create">Art Piece Name</label>
+						<input type="name" class="is_required validate account_input form-control" id="name_create" name="email_create" value="" />
 					</div>
 					<div class="form-group">
-						<label for="passwd">Password</label>
-						<input class="is_required validate account_input form-control" type="password" data-validate="isPasswd" id="passwd" name="passwd" value="" />
+						<label for="email_create">Description:</label>
+						<textarea class="form-control" rows="5" id="comment"></textarea>
 					</div>
-					<p class="lost_password form-group"><a href="l-artiste-master/index.html" title="Recover your forgotten password" rel="nofollow">Forgot your password?</a></p>
-					<p class="submit">
-						<input type="hidden" class="hidden" name="back" value="my-account" />						<button type="submit" id="SubmitLogin" name="SubmitLogin" class="button btn btn-default button-medium">
+					<div class="form-group">
+						<label for="email_create">Price:</label>
+  							<input type="text" class="form-control" placeholder="$0.00">					
+  					</div>
+					<div class="file-tab panel-body">
+						<label for="uploading_art">Upload an image of your art:</label>
+						</br>
+						<input class="btn btn-default btn-file" type="file" name="image-file">
+					</div>	
+						<input type="hidden" class="hidden" name="back" value="my-account" />						
+						<button type="submit" id="SubmitLogin" name="SubmitLogin" class="button btn btn-default button-medium">
 							<span>
-								<i class="icon-lock left"></i>
-								Login							
+								<i class="icon-thumbs-up left"></i>
+								Add Piece
+							</span>
+						</button>
+						<button type="submit" id="SubmitLogin" name="SubmitLogin" class="button btn btn-default button-medium anothergray">
+							<span>
+								<i class="icon-plus left"></i>
+								Add Another
 							</span>
 						</button>
 					</p>
